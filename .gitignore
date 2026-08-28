@@ -68,6 +68,8 @@ dmypy.json
 Thumbs.db
 .DS_Store
 
-# Data files
-data/raw/*.xlsx
-data/raw/*.csv
+# Data files - keep directories but ignore contents
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
