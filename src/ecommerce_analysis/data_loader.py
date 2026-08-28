@@ -14,5 +14,8 @@ def load_raw_data() -> pd.DataFrame:
     Returns:
         pd.DataFrame: The raw transaction data with original values.
     """
-    logger.info(f"Loading raw data from {config.RAW_DATA_FILE}")
-    return pd.read_excel(config.RAW_DATA_FILE)
+    relative_path = config.RAW_DATA_FILE.relative_to(config.PROJECT_ROOT)
+    logger.info(f"Loading raw data from {relative_path}")
+    df = pd.read_excel(config.RAW_DATA_FILE)
+    logger.info(f"{relative_path} was loaded successfully.")
+    return df
