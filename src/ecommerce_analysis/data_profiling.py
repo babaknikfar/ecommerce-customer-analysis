@@ -52,3 +52,31 @@ def profile_data(df: pd.DataFrame) -> DataProfile:
         date_range=(df["InvoiceDate"].min(), df["InvoiceDate"].max()),
         unique_counts=df.nunique().to_dict(),
     )
+
+def show_profile(profile: DataProfile) -> None:
+    """Human readable presentation of the data profile."""
+    print("\n" + "="*60)
+    print("DATA PROFILE SUMMARY")
+    print("="*60)
+    
+    print(f"\nDataset Shape: {profile.shape[0]:,} rows and {profile.shape[1]} columns")
+    print(f"Duplicate Rows: {profile.duplicate_count:,}")
+    print(f"Date Range: {profile.date_range[0].strftime('%Y-%m-%d')} to {profile.date_range[1].strftime('%Y-%m-%d')}")
+    
+    print(f"\nData Quality Issues:")
+    print(f"  - Negative Quantities: {profile.negative_quantities:,}")
+    print(f"  - Negative Prices: {profile.negative_prices:,}")
+    print(f"  - Zero Quantities: {profile.zero_quantities:,}")
+    print(f"  - Zero Prices: {profile.zero_prices:,}")
+        
+    # Column information
+    print(f"\nColumn Details:")
+    column_info = pd.DataFrame({
+        "dtype": [str(dtype) for dtype in profile.dtypes.values()],
+        "missing": [f"{count:,}" for count in profile.missing_values.values()],
+        "missing_pct": [f"{count/profile.shape[0]:.1%}" for count in profile.missing_values.values()],
+        "unique": [f"{count:,}" for count in profile.unique_counts.values()],
+    }, index=profile.columns)
+    
+    print(column_info.to_string())
+    print("="*60)
