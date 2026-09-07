@@ -143,7 +143,7 @@ This project is licensed under the MIT License.
 
 ## 👤 Author
 
-Babak Nikfar\
+Babak Nikfar
 - Email: nikfar@nikintel.com
 - GitHub: babaknikfar
 
