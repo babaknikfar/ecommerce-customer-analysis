@@ -1,0 +1,22 @@
+============================================================
+E-COMMERCE DATA ANALYSIS SUMMARY
+============================================================
+
+Data Period: 2010-12-01 to 2011-12-09
+Total Transactions: 401,564
+Unique Customers: 4,371
+Unique Products: 3,684
+Countries Served: 37
+
+Total Revenue: £8,278,519.42
+Average Order Value: £20.62
+Total Items Sold: 5,152,002
+
+Top 5 Countries by Revenue:
+  United Kingdom: £6,747,156.15
+  Netherlands: £284,661.54
+  EIRE: £250,001.78
+  Germany: £221,509.47
+  France: £196,626.05
+
+============================================================
