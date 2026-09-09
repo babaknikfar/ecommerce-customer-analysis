@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 def load_raw_data() -> pd.DataFrame:
     """Load the raw e-commerce transaction data from Excel.
-    
+
     Returns:
         pd.DataFrame: The raw transaction data with original values.
     """

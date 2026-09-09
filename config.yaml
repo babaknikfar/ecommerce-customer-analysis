@@ -1,0 +1,78 @@
+# ================================================================
+# E-commerce Customer Behavior Analysis Configuration File
+# ================================================================
+# This file contains all configurable parameters
+# Modify values here without touching Python code
+
+# ------------------------------------------
+# Data Paths
+# ------------------------------------------
+paths:
+  raw_data: "data/raw/online_retail.xlsx"
+  processed_data: "data/processed/cleaned_data.csv"
+  figures_dir: "reports/figures"
+  logs_dir: "logs"
+
+# ------------------------------------------
+# Data Cleaning Settings
+# ------------------------------------------
+cleaning:
+  # Missing Values
+  drop_missing_customer_id: true
+  fill_missing_description: "Unknown"
+  
+  # Invalid Transactions
+  remove_negative_prices: true
+  remove_zero_prices: true
+  remove_zero_quantities: true
+  
+  # Returns (negative quantities are valid business events)
+  keep_negative_quantities: true
+  
+  # Feature Engineering
+  create_total_price: true
+  create_year_month: true
+
+# ------------------------------------------
+# Analysis Settings
+# ------------------------------------------
+analysis:
+  # Top products to display
+  top_products_count: 10
+  
+  # Minimum transaction value for analysis
+  min_transaction_value: 0.5
+  
+  # Date range (leave empty for full range)
+  start_date: null
+  end_date: null
+  
+  # Customer segmentation
+  rfm_segmentation: false  # Future enhancement
+
+# ------------------------------------------
+# Visualization Settings
+# ------------------------------------------
+visualization:
+  # Figure defaults
+  figure_width: 12
+  figure_height: 6
+  dpi: 100
+  
+  # Style settings
+  style: "seaborn-v0_8-darkgrid"
+  color_palette: "husl"
+  
+  # Plot-specific settings
+  top_countries_to_plot: 10
+  histogram_bins: 50
+  use_log_scale: true
+
+# ------------------------------------------
+# Logging Settings
+# ------------------------------------------
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  log_to_file: true
+  log_file_path: "logs/analysis.log"
+  colored_console: true
